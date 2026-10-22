@@ -30,9 +30,16 @@ export const NAV: Array<{ key: NavKey; label: string; href: string }> = [
   { key: 'contact', label: 'Contact', href: '/contact/' },
 ];
 
-export const brandMark = raw(
-  `<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><path d="M16 3.5c7.2 0 12.5 5.1 12.5 12.3S23 28.5 15.6 28.5 3.5 23.4 3.5 16.2 8.8 3.5 16 3.5Z" stroke="#2d4a3b" stroke-width="1.6"/><path d="M16.4 8.6c4.6 0 7.6 3.3 7.6 7.4s-3.4 7.2-7.9 7.2-7.9-3.1-7.9-7.3 3.6-7.3 8.2-7.3Z" stroke="#8fa593" stroke-width="1.6"/><circle cx="16.6" cy="15.8" r="2.4" fill="#a2532f"/></g></svg>`,
-);
+/** The Seek Sense logo exactly as supplied (trade mark UK00003372433 artwork). */
+export const logo = (opts: { eager?: boolean } = {}) =>
+  html`<img
+    class="logo"
+    src="/brand/seeksense-logo-transparent.png"
+    alt="${site.name}"
+    width="573"
+    height="99"
+    ${opts.eager ? raw('fetchpriority="high"') : raw('loading="lazy"')}
+  />`;
 
 function head(ctx: BuildContext, meta: PageMeta): SafeHtml {
   const url = ctx.url(meta.path);
@@ -62,7 +69,7 @@ function head(ctx: BuildContext, meta: PageMeta): SafeHtml {
     <meta property="og:image" content="${ctx.url('/og-image.png')}" />
     <meta property="og:image:alt" content="SeekSense: contour lines on a warm ivory background" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/Newsreader.woff" as="font" type="font/woff" crossorigin />
     <link rel="stylesheet" href="${ctx.asset('/css/main.css')}" />
@@ -74,7 +81,7 @@ function head(ctx: BuildContext, meta: PageMeta): SafeHtml {
 function header(meta: PageMeta): SafeHtml {
   return html`<header class="site-header" data-header>
     <div class="wrap site-header__inner">
-      <a class="wordmark" href="/" aria-label="${site.name} home">${brandMark}<span>${site.name}</span></a>
+      <a class="wordmark" href="/" aria-label="${site.name}: home">${logo({ eager: true })}</a>
       <a class="urgent-link" href="/urgent-help/"
         ><span class="dot" aria-hidden="true"></span><span class="urgent-link__long">Need urgent help?</span
         ><span class="urgent-link__short">Urgent help</span></a
@@ -131,7 +138,7 @@ function footer(ctx: BuildContext): SafeHtml {
     <div class="site-footer__band" aria-hidden="true"></div>
     <div class="wrap site-footer__grid">
       <div>
-        <a class="wordmark" href="/">${brandMark}<span>${site.name}</span></a>
+        <a class="wordmark wordmark--panel" href="/" aria-label="${site.name}: home">${logo()}</a>
         <p>Talking therapy, assessment and help finding the right support, offered ${fact(site.service.formats)}.</p>
         <p>Email <a href="mailto:${factText(site.contact.email)}">${fact(site.contact.email)}</a></p>
       </div>
@@ -168,6 +175,7 @@ function footer(ctx: BuildContext): SafeHtml {
       <p>
         ${fact(site.company.legalName)} is registered in ${fact(site.company.country)}, ${fact(site.company.number)}.
         Registered office: ${fact(site.company.registeredOffice)}. ${fact(site.company.icoRegistration)}.
+        ${fact(site.company.trademarkNotice)}
       </p>
       <p>
         The information on this website is general and is not a substitute for individual professional advice. &copy;

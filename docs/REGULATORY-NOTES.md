@@ -68,3 +68,12 @@ The urgent help numbers were checked against NHS and national sources on 22 Octo
 - Childline 0800 1111 (under 19s)
 
 They are kept in one place, `src/config/site.ts`. **Re-check at least every six months**, and update the `checked` date.
+
+## 8. Trade mark (logo)
+
+- The logo used on the site (`public/brand/`) is the artwork from UK trade mark application **UK00003372433**. It was filed on 4 February 2019 for the word elements "SeekSense", as a figurative mark in classes 41 and 44.
+- The filing certificate names **Tune In Ltd** (company number 10551484) as the owner, not SeekSense Ltd. **Confirm:**
+  - that the mark proceeded to registration, and that its renewal is due 4 February 2029
+  - that SeekSense Ltd may use it, through an assignment to SeekSense Ltd or a written licence.
+- Use the ® symbol only with the registered form of the mark, and only once registration is confirmed.
+- The footer trade mark notice is a pending fact, so it blocks production builds until confirmed.

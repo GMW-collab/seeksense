@@ -19,6 +19,13 @@ export const site = {
     number: 'company number 14114057' as Fact,
     registeredOffice: '128 City Road, London, EC1V 2NX' as Fact,
     country: 'England and Wales' as Fact,
+    // UK trade mark application UK00003372433 (filed 4 Feb 2019) names Tune In Ltd as owner,
+    // not SeekSense Ltd. Confirm registration status and SeekSense Ltd's right to use it.
+    trademarkNotice: pending(
+      'Trade mark UK00003372433: confirm it is registered, who owns it (filing names Tune In Ltd) and that SeekSense Ltd may use it (assignment or licence)',
+      'The Seek Sense name and ear logo are trade marks of Tune In Ltd, used under licence.',
+      'legal',
+    ) as Fact,
     icoRegistration: pending('ICO data protection fee registration number', 'ICO reg. Z0000000', 'privacy') as Fact,
   },
 
