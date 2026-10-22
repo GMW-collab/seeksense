@@ -28,8 +28,9 @@ export const SECURITY_HEADERS: Record<string, string> = {
 };
 
 /** Netlify / Cloudflare Pages "_headers" file content. */
-export function headersFile(): string {
-  const lines = ['/*', ...Object.entries(SECURITY_HEADERS).map(([k, v]) => `  ${k}: ${v}`)];
+export function headersFile(opts: { noindex?: boolean } = {}): string {
+  const headers = { ...SECURITY_HEADERS, ...(opts.noindex ? { 'X-Robots-Tag': 'noindex, nofollow' } : {}) };
+  const lines = ['/*', ...Object.entries(headers).map(([k, v]) => `  ${k}: ${v}`)];
   lines.push('', '/fonts/*', '  Cache-Control: public, max-age=31536000, immutable');
   lines.push('', '/api/*', '  Cache-Control: no-store');
   return `${lines.join('\n')}\n`;

@@ -99,7 +99,7 @@ npm run build:production    # fails until launch-check passes
 npm start                   # serve ./dist with the enquiry endpoint
 ```
 
-**Deployment (recommended):** build in CI with `SITE_ENV=production`, then run `node server/server.ts` behind the platform's HTTPS. Static-only hosts can serve `dist/`, and `dist/_headers` carries the security headers for Netlify or Cloudflare Pages. The `/api/enquiry` endpoint then needs the Node server or an equivalent function, or the contact page should fall back to email (the form already degrades to `/contact/unavailable/`).
+**Deployment:** Cloudflare Pages through GitHub Actions. See `docs/DEPLOY-CLOUDFLARE.md`. The enquiry endpoint runs as a Pages Function (`functions/api/enquiry.ts`), and `server/server.ts` remains as an alternative for any Node host.
 
 **Before switching DNS:** deploy to a staging URL, run the browser checks against it, and check that HTTPS, headers and the enquiry flow all work end to end with a real test inbox.
 

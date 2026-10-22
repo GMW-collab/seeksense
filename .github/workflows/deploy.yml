@@ -1,0 +1,45 @@
+name: Deploy to Cloudflare Pages
+# Runs after CI passes on main. Deploys the PREVIEW build (noindex, placeholders
+# highlighted) to the Pages project's *.pages.dev address. It does not attach
+# any custom domain or change DNS. Switch SITE_ENV to production only once
+# `npm run launch-check` passes.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  deployments: write
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      SITE_ENV: preview
+      SITE_URL: https://seeksense.co
+    steps:
+      - name: Check Cloudflare credentials are configured
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID as repository secrets (see docs/DEPLOY-CLOUDFLARE.md)."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npm run build
+      - name: Create the Pages project if it does not exist
+        run: npx --yes wrangler@4 pages project create seeksense --production-branch=main || echo "Project already exists"
+      - name: Deploy
+        run: npx --yes wrangler@4 pages deploy dist --project-name=seeksense --branch=main --commit-dirty=true

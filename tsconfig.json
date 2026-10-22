@@ -19,5 +19,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "server", "scripts/*.ts", "tests"]
+  "include": ["src", "server", "functions", "scripts/*.ts", "tests"]
 }

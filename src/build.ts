@@ -141,15 +141,7 @@ export function build(settings: BuildSettings, outDir = join(ROOT, 'dist')): Bui
       ? `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${ctx.url('/sitemap.xml')}\n`
       : '# Preview build: not for indexing\nUser-agent: *\nDisallow: /\n',
   );
-  writeFileSync(join(outDir, '_headers'), headersFile());
-  writeFileSync(
-    join(outDir, 'build.json'),
-    JSON.stringify(
-      { env: settings.env, builtAt: new Date().toISOString(), pages: written.length, pending: pending.length },
-      null,
-      2,
-    ),
-  );
+  writeFileSync(join(outDir, '_headers'), headersFile({ noindex: !isProd }));
 
   return { outDir, pages: written, pending };
 }

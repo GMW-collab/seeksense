@@ -53,7 +53,8 @@ export class PostmarkMailer implements Mailer {
     this.token = opts.token;
     this.from = opts.from;
     this.to = opts.to;
-    this.fetchImpl = opts.fetchImpl ?? fetch;
+    // Wrapped so the global is called unbound (Workers throw "Illegal invocation" otherwise).
+    this.fetchImpl = opts.fetchImpl ?? ((input, init) => fetch(input, init));
   }
 
   async send(enquiry: Enquiry): Promise<void> {
