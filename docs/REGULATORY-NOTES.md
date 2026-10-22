@@ -71,9 +71,11 @@ They are kept in one place, `src/config/site.ts`. **Re-check at least every six 
 
 ## 8. Trade mark (logo)
 
-- The logo used on the site (`public/brand/`) is the artwork from UK trade mark application **UK00003372433**. It was filed on 4 February 2019 for the word elements "SeekSense", as a figurative mark in classes 41 and 44.
-- The filing certificate names **Tune In Ltd** (company number 10551484) as the owner, not SeekSense Ltd. **Confirm:**
-  - that the mark proceeded to registration, and that its renewal is due 4 February 2029
-  - that SeekSense Ltd may use it, through an assignment to SeekSense Ltd or a written licence.
-- Use the ® symbol only with the registered form of the mark, and only once registration is confirmed.
-- The footer trade mark notice is a pending fact, so it blocks production builds until confirmed.
+- The logo used on the site (`public/brand/`) is the artwork from UK trade mark **UK00003372433**. It was filed on 4 February 2019 for the word elements "SeekSense", as a figurative mark in classes 41 and 44.
+- The filing names **Tune In Ltd** (company number 10551484) as owner. The founder reports that the company was renamed Liv Children Care Ltd and later sold. The mark therefore still belongs to that company unless it was assigned out before the sale.
+- **Plan:** transfer the mark to SeekSense Ltd.
+  1. Check the mark's status on the UKIPO register. If it was registered, renewal is due 4 February 2029.
+  2. Optionally, record the owner's change of name with form TM21A (no fee).
+  3. Prepare a written assignment from the current owner company to SeekSense Ltd, signed for the assignor by its current directors.
+  4. Record it with form TM16 (£60).
+- Use the ® symbol only once registration in SeekSense Ltd's name is confirmed. The footer notice is a pending legal fact, so it blocks production builds until then.

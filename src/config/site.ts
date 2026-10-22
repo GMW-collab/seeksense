@@ -19,11 +19,12 @@ export const site = {
     number: 'company number 14114057' as Fact,
     registeredOffice: '128 City Road, London, EC1V 2NX' as Fact,
     country: 'England and Wales' as Fact,
-    // UK trade mark application UK00003372433 (filed 4 Feb 2019) names Tune In Ltd as owner,
-    // not SeekSense Ltd. Confirm registration status and SeekSense Ltd's right to use it.
+    // UK trade mark UK00003372433 was filed in 2019 by Tune In Ltd (later renamed Liv Children Care Ltd,
+    // then sold). The founder is transferring it to SeekSense Ltd: confirm the assignment is recorded at
+    // the UKIPO (form TM16) and the registration is in force before this notice goes live.
     trademarkNotice: pending(
-      'Trade mark UK00003372433: confirm it is registered, who owns it (filing names Tune In Ltd) and that SeekSense Ltd may use it (assignment or licence)',
-      'The Seek Sense name and ear logo are trade marks of Tune In Ltd, used under licence.',
+      'Trade mark UK00003372433: assignment to SeekSense Ltd recorded at the UKIPO, and registration in force',
+      'Seek Sense and the ear logo are registered trade marks of SeekSense Ltd.',
       'legal',
     ) as Fact,
     icoRegistration: pending('ICO data protection fee registration number', 'ICO reg. Z0000000', 'privacy') as Fact,
