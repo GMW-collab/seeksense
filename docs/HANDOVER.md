@@ -77,9 +77,9 @@ See `.env.example`.
 
 ## 5. Approvals outstanding
 
-Run `npm run launch-check` for the live list. It currently shows 35 items in production scope, plus content inside the proposed services and draft articles. In summary:
+Run `npm run launch-check` for the live list. It currently shows 32 items in production scope, plus content inside the proposed services and draft articles. In summary:
 
-- **Founder:** company details, contact email, reply times, service area and format, portrait, complaint timescales, accessibility audit.
+- **Founder:** contact email, reply times, service area and format, portrait, complaint timescales, accessibility audit.
 - **Practitioner:** name, title, registration, qualifications, memberships, experience, biography, approach, insurance; per-service details (length, fee, modality).
 - **Clinical:** audience/age range, supervision, safeguarding lead and policy, assessment scope (including whether a diagnosis can be given), article clinical review and approval.
 - **Legal and privacy:** lawful bases and Article 9 condition, client privacy notice and retention schedule, client terms, processors and DPAs, hosting logs, ICO registration, policy dates.

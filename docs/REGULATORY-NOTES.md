@@ -10,6 +10,7 @@ The paragraph 4 definition of "health care professional" lists, among others, me
 
 - If services are delivered only by counsellors, psychotherapists or practitioner psychologists, talking therapy may fall outside CQC scope. **Confirm.**
 - If the founder or any team member is a doctor, nurse, social worker or other listed professional, registration is likely to be needed. **Confirm before any service starts.** Providing a regulated activity without registration is an offence.
+- The company's registered SIC code is 86220 (*specialist medical practice activities*). That classification does not decide CQC scope, but it suggests a medical model of service. Make sure it matches how services will actually be delivered. **Confirm.**
 - Assessment may engage other regulated activities, such as *diagnostic and screening procedures*, depending on what it involves. **Confirm** the assessment model against CQC's scope guidance.
 - The website shows the CQC position as a pending fact (`site.service.cqc`). Replace it with either the registration details or a plain statement that registration is not required, once confirmed.
 

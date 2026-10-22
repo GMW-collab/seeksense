@@ -7,9 +7,9 @@ _22 October 2026_
 | Source | Result |
 | --- | --- |
 | Live site, https://seeksense.co | **Not reachable from the build environment.** The site refuses automated access (robots rules), and the environment's network policy blocks the domain. Nothing about its current content, framework or hosting could be confirmed. |
-| GitHub | The connected account has two repositories, `GMW-collab/harkhowal-site` and `GMW-collab/SpiritualKnowledge`. **Neither is SeekSense.** No SeekSense repository was found. |
+| GitHub | At first, no SeekSense repository existed. The founder then created `GMW-collab/seeksense` (empty) on 22 October 2026, and this project is its first commit. |
 | Search engines | No indexed pages for seeksense.co. Results for similar names belong to unrelated companies (See.Sense, a cycling-technology firm in Northern Ireland, and SearchSense AI). |
-| Companies House (via search) | No match found for a "SeekSense" limited company. It may be registered under a different name, or too recently to be indexed. |
+| Companies House | **SEEKSENSE LTD**, company number 14114057, active private limited company, incorporated 18 May 2022. Registered office: 128 City Road, London, EC1V 2NX. SIC code 86220 (specialist medical practice activities). Confirmed by the founder on 22 October 2026 and now shown on the site. |
 | Supplied material | The build brief only. It describes the intended services but gives no verified facts about the founder, registrations, location, prices or availability. |
 
 ## What this means
@@ -27,6 +27,5 @@ _22 October 2026_
 ## Questions for the founder
 
 1. Is there an existing repository or hosting account for seeksense.co (for example Wix, Squarespace or WordPress)? If so, what should happen to its content and URLs?
-2. What is the registered company name and number?
-3. Who is the practitioner, what is their profession, and which register are they on?
-4. Which services will be available at launch, and at what price?
+2. Who is the practitioner, what is their profession, and which register are they on?
+3. Which services will be available at launch, and at what price?

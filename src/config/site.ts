@@ -13,9 +13,11 @@ export const site = {
   lang: 'en-GB',
 
   company: {
-    legalName: pending('Registered company name', 'SeekSense Ltd', 'founder') as Fact,
-    number: pending('Companies House registration number', 'Company no. 00000000', 'founder') as Fact,
-    registeredOffice: pending('Registered office address', 'Registered office address', 'founder') as Fact,
+    // Confirmed by the founder, 22 Oct 2026, and matched to the Companies House
+    // register: https://find-and-update.company-information.service.gov.uk/company/14114057
+    legalName: 'SeekSense Ltd' as Fact,
+    number: 'company number 14114057' as Fact,
+    registeredOffice: '128 City Road, London, EC1V 2NX' as Fact,
     country: 'England and Wales' as Fact,
     icoRegistration: pending('ICO data protection fee registration number', 'ICO reg. Z0000000', 'privacy') as Fact,
   },
