@@ -31,10 +31,10 @@ jobs:
             echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID as repository secrets (see docs/DEPLOY-CLOUDFLARE.md)."
             exit 1
           fi
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
       - run: npm install
@@ -43,3 +43,23 @@ jobs:
         run: npx --yes wrangler@4 pages project create seeksense --production-branch=main || echo "Project already exists"
       - name: Deploy
         run: npx --yes wrangler@4 pages deploy dist --project-name=seeksense --branch=main --commit-dirty=true
+      - name: Smoke test the deployed site
+        run: |
+          set -euo pipefail
+          BASE=https://seeksense.pages.dev
+          sleep 15
+          check() { echo "checking: $1"; }
+          code=$(curl -s -o /tmp/home.html -w '%{http_code}' "$BASE/"); check "home returns 200 ($code)"; [ "$code" = 200 ]
+          grep -q 'Help to make sense of what you are going through' /tmp/home.html; check "home content present"
+          curl -sI "$BASE/" > /tmp/h.txt
+          grep -qi "^content-security-policy: default-src 'self'" /tmp/h.txt; check "CSP header present"
+          grep -qi '^x-robots-tag: noindex' /tmp/h.txt; check "preview is noindex"
+          grep -q 'Disallow: /' <(curl -s "$BASE/robots.txt"); check "robots.txt blocks crawling"
+          for p in /approach/ /services/ /find-support/ /contact/ /urgent-help/ /resources/ /about/ /privacy/; do
+            c=$(curl -s -o /dev/null -w '%{http_code}' "$BASE$p"); check "$p -> $c"; [ "$c" = 200 ]
+          done
+          c=$(curl -s -o /dev/null -w '%{http_code}' "$BASE/no-such-page/"); check "missing page -> $c"; [ "$c" = 404 ]
+          c=$(curl -s -o /tmp/api.json -w '%{http_code}' -X POST "$BASE/api/enquiry" \
+               -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{}'); check "enquiry endpoint -> $c $(cat /tmp/api.json)"
+          [ "$c" = 503 ] || [ "$c" = 400 ]
+          echo "Smoke test passed"
