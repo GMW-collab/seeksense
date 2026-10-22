@@ -19,10 +19,9 @@ export const site = {
     number: 'company number 14114057' as Fact,
     registeredOffice: '128 City Road, London, EC1V 2NX' as Fact,
     country: 'England and Wales' as Fact,
-    // UK trade mark UK00003372433. The UKIPO register shows the owner as SeekSense Ltd (14114057),
-    // as confirmed by the founder on 22 Oct 2026. Add "registered" and the ® symbol only once the
-    // register shows the status as Registered.
-    trademarkNotice: 'Seek Sense and the ear logo are trade marks of SeekSense Ltd.' as Fact,
+    // UK trade mark UK00003372433: registered, owner SeekSense Ltd (14114057), per the UKIPO
+    // register as confirmed by the founder on 22 Oct 2026. Renewal due 4 Feb 2029 (ten years from filing).
+    trademarkNotice: 'Seek Sense® and the ear logo are registered trade marks of SeekSense Ltd.' as Fact,
     icoRegistration: pending('ICO data protection fee registration number', 'ICO reg. Z0000000', 'privacy') as Fact,
   },
 

@@ -73,6 +73,5 @@ They are kept in one place, `src/config/site.ts`. **Re-check at least every six 
 
 - The logo used on the site (`public/brand/`) is the artwork from UK trade mark **UK00003372433**. It was filed on 4 February 2019 for the word elements "SeekSense", as a figurative mark in classes 41 and 44.
 - **Owner:** the UKIPO register shows **SeekSense Ltd** (company number 14114057, 128 City Road, London EC1V 2NX), as confirmed by the founder on 22 October 2026. The original applicant was Tune In Ltd.
-- **Still to confirm:** the mark's status on the register.
-  - If it shows *Registered*, the footer can say "registered trade marks" and use ®. Renewal would be due 4 February 2029 (form TM11, £245 plus £60 for each extra class).
-  - Until then, the footer says "trade marks of SeekSense Ltd", which is accurate either way.
+- **Status:** Registered, as confirmed by the founder from the UKIPO register on 22 October 2026. The site footer uses ® and "registered trade marks".
+- **Renewal:** due 4 February 2029, ten years from the filing date (form TM11, £245 plus £60 for each extra class). Check the exact date on the register and set a reminder about six months ahead.
